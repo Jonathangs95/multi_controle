@@ -20,12 +20,12 @@ form.addEventListener("submit",async event=>{
   feedback.className="feedback";
   const payload=Object.fromEntries(new FormData(form).entries());
   payload.enviado_em=new Date().toISOString();
-  const {SUPABASE_URL,SUPABASE_ANON_KEY}=window.APP_CONFIG||{};
+  const {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,SUPABASE_ANON_KEY}=window.APP_CONFIG||{};\n  const API_KEY=SUPABASE_PUBLISHABLE_KEY||SUPABASE_ANON_KEY;
   try{
-    if(SUPABASE_URL&&SUPABASE_ANON_KEY){
+    if(SUPABASE_URL&&API_KEY){
       const response=await fetch(SUPABASE_URL+"/rest/v1/respostas_multi_controle",{
         method:"POST",
-        headers:{apikey:SUPABASE_ANON_KEY,Authorization:"Bearer "+SUPABASE_ANON_KEY,"Content-Type":"application/json",Prefer:"return=minimal"},
+        headers:{apikey:API_KEY,"Content-Type":"application/json",Prefer:"return=minimal"},
         body:JSON.stringify(payload)
       });
       if(!response.ok) throw new Error("Não foi possível registrar a resposta.");

@@ -22,19 +22,22 @@ form.addEventListener("submit",async event=>{
   payload.enviado_em=new Date().toISOString();
   const {SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,SUPABASE_ANON_KEY}=window.APP_CONFIG||{};\n  const API_KEY=SUPABASE_PUBLISHABLE_KEY||SUPABASE_ANON_KEY;
   try{
-    if(SUPABASE_URL&&API_KEY){
-      const response=await fetch(SUPABASE_URL+"/rest/v1/respostas_multi_controle",{
-        method:"POST",
-        headers:{apikey:API_KEY,"Content-Type":"application/json",Prefer:"return=minimal"},
-        body:JSON.stringify(payload)
-      });
-      if(!response.ok) throw new Error("Não foi possível registrar a resposta.");
-      feedback.textContent="Pesquisa concluída. Sua resposta foi registrada com sucesso.";
-    }else{
-      const saved=JSON.parse(localStorage.getItem("respostas_multi_controle")||"[]");
-      localStorage.setItem("respostas_multi_controle",JSON.stringify([...saved,payload]));
-      feedback.textContent="Modo demonstração: resposta salva somente neste dispositivo.";
+    if(!SUPABASE_URL||!API_KEY){
+      throw new Error("A conexão com o banco ainda não está configurada.");
     }
+
+    const response=await fetch(SUPABASE_URL+"/rest/v1/respostas_multi_controle",{
+      method:"POST",
+      headers:{apikey:API_KEY,"Content-Type":"application/json",Prefer:"return=minimal"},
+      body:JSON.stringify(payload)
+    });
+
+    if(!response.ok){
+      const details=await response.json().catch(()=>({}));
+      throw new Error(details.message||"Não foi possível registrar a resposta.");
+    }
+
+    feedback.textContent="Resposta enviada com sucesso.";
     feedback.className="feedback success";
     form.reset(); updateProgress(); window.scrollTo({top:0,behavior:"smooth"});
   }catch(error){

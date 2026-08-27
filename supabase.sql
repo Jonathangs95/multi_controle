@@ -11,5 +11,17 @@ create table if not exists public.respostas_multi_controle (
   explicacao text not null,
   enviado_em timestamptz not null default now()
 );
+
 alter table public.respostas_multi_controle enable row level security;
-create policy "Permitir somente novos envios" on public.respostas_multi_controle for insert to anon with check (true);
+
+revoke all on table public.respostas_multi_controle from anon, authenticated;
+grant insert on table public.respostas_multi_controle to anon;
+grant usage, select on sequence public.respostas_multi_controle_id_seq to anon;
+
+drop policy if exists "Permitir somente novos envios" on public.respostas_multi_controle;
+
+create policy "Permitir somente novos envios"
+on public.respostas_multi_controle
+for insert
+to anon
+with check (true);

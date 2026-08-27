@@ -1,1 +1,5 @@
-// Preencha com a URL e a chave pública do Supabase. Nunca use sb_secret ou service_role.\nwindow.APP_CONFIG = { SUPABASE_URL: "", SUPABASE_PUBLISHABLE_KEY: "" };\n
+// Configuração pública do Supabase. Nunca use sb_secret ou service_role aqui.
+window.APP_CONFIG = {
+  SUPABASE_URL: "https://lwuachrjgvxcnstcndiy.supabase.co",
+  SUPABASE_PUBLISHABLE_KEY: "sb_publishable_-NL9L0gsdzIBn_PzwOVA7w_PWAHImne"
+};

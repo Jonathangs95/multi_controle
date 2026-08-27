@@ -1,2 +1,1 @@
-// Preencha com a URL e a chave ANON do Supabase. Nunca use a chave service_role.
-window.APP_CONFIG = { SUPABASE_URL: "", SUPABASE_ANON_KEY: "" };
+// Preencha com a URL e a chave pública do Supabase. Nunca use sb_secret ou service_role.\nwindow.APP_CONFIG = { SUPABASE_URL: "", SUPABASE_PUBLISHABLE_KEY: "" };\n

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pesquisa interna de oportunidades do Controle Multi.">
+  <title>Pesquisa de Oportunidade Controle Multi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+    <div class="content-wrap">
+      <header class="hero">
+        <div class="brand-mark" aria-hidden="true">MC</div>
+        <div><p class="eyebrow">DIAGNÓSTICO COMERCIAL</p><h1>Pesquisa de Oportunidade Controle Multi</h1>
+          <p class="intro">Sua percepção nos ajuda a entender as oportunidades e melhorar a abordagem do Controle Multi nas lojas.</p></div>
+      </header>
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      <form id="survey-form" class="form-card">
+        <div class="form-topline">
+          <div><span class="step-label">IDENTIFICAÇÃO</span><h2>Dados do atendimento</h2></div>
+          <div class="progress-copy" aria-live="polite"><strong id="progress-count">0/9</strong><small>preenchidos</small></div>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progress-value" class="progress-value"></div></div>
+        <div class="identity-grid">
+          <label><span>Código da loja <b>*</b></span><input name="codigo_loja" required autocomplete="off" placeholder="Ex.: 123456"></label>
+          <label><span>Código do vendedor <b>*</b></span><input name="codigo_vendedor" required autocomplete="off" placeholder="Digite o código"></label>
+          <label><span>Nome do GN <b>*</b></span><input name="nome_gn" required autocomplete="name" placeholder="Nome completo"></label>
+        </div>
+        <div class="divider"></div>
+        <section>
+          <span class="step-label">PERCEPÇÃO DA VENDA</span><h2>Conte como foi o atendimento</h2>
+          <p class="section-help">Responda de forma breve e objetiva. Todos os campos são obrigatórios.</p>
+          <div class="questions">
+            <label class="question"><span class="question-number">01</span><span class="question-content"><span class="question-title">Qual produto foi ofertado ao cliente? <b>*</b></span><textarea name="produto_ofertado" required rows="3" placeholder="Digite sua resposta..."></textarea></span></label>
+            <label class="question"><span class="question-number">02</span><span class="question-content"><span class="question-title">Foi realizada sondagem para identificar se o cliente possuía serviços residenciais (Internet, TV ou Fixo)? <b>*</b></span><textarea name="sondagem_residencial" required rows="3" placeholder="Digite sua resposta..."></textarea></span></label>
+            <label class="question"><span class="question-number">03</span><span class="question-content"><span class="question-title">O cliente possuía perfil ou elegibilidade para contratação do Controle Multi? <b>*</b></span><textarea name="elegibilidade_multi" required rows="3" placeholder="Digite sua resposta..."></textarea></span></label>
+            <label class="question"><span class="question-number">04</span><span class="question-content"><span class="question-title">Qual foi a principal dificuldade ou motivo para não vender o Controle Multi? <b>*</b></span><textarea name="motivo_nao_venda" required rows="3" placeholder="Digite sua resposta..."></textarea></span></label>
+            <label class="question"><span class="question-number">05</span><span class="question-content"><span class="question-title">O que poderia ajudar você a converter mais vendas para o Controle Multi? <b>*</b></span><textarea name="apoio_conversao" required rows="3" placeholder="Digite sua resposta..."></textarea></span></label>
+            <label class="question"><span class="question-number">06</span><span class="question-content"><span class="question-title">Explique brevemente por que o Multi não foi ofertado ou não foi vendido. <b>*</b></span><textarea name="explicacao" required rows="4" placeholder="Digite sua resposta..."></textarea></span></label>
+          </div>
+        </section>
+        <div class="submit-row">
+          <p class="privacy-note"><span aria-hidden="true">✓</span>As respostas serão usadas apenas para melhoria da operação comercial.</p>
+          <button id="submit-button" type="submit"><span>Enviar pesquisa</span><span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      <footer>Controle Multi · Pesquisa interna</footer>
+    </div>
+  </main>
+  <script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
